@@ -2,8 +2,9 @@ class TasksController < ApplicationController
     def index
         if user_signed_in?
             @tasks=Task.where(:user_id => current_user.id).order("created_at DESC")
+        end
     end
-end
+
     def show
         @task=Task.find(params[:id])
     rescue ActiveRecord::RecordNotFound
@@ -26,7 +27,8 @@ end
         @task=Task.find(params[:id])
         rescue ActiveRecord::RecordNotFound
             redirect_to root_path
-        end
+    end
+
     def update
         @task=Task.find(params[:id])
         if @task.update(tasks_params)
@@ -44,7 +46,8 @@ end
         rescue ActiveRecord::RecordNotFound
             flash[:notice]="Task Removed Successfully"
             redirect_to root_path
-        end
+    end
+
     def complete
         @task=Task.find(params[:id])
         @task.update_attribute(:completed_at,Time.now)
