@@ -1,5 +1,5 @@
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),html: {"class": 'mt-5'}) do |f| %>
-  <h2 class="text-center">Log in</h2>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),html: {"class": 'mt-5 bg-light'}) do |f| %>
+  <h2 class="text-center mb-4">-Log in-</h2>
   <div class='row mb-3'>
     <%= f.label :"Email :",class:"col-sm-2 col-form-label"%>
     <div class="col-sm-10">
@@ -13,8 +13,8 @@
   </div>
   </div>
     <div class="d-grid gap-2 col-6 mx-auto">
-       <%= f.button :submit, "Log in",class:"btn btn-info"%>
+       <%= f.button :submit, "Log in",class:"btn btn-success mt-3"%>
     </div>
     <%= render "devise/shared/links" %>
-    <%= link_to 'Back',root_path,class:'btn btn-warning'%>
+    <%= link_to 'Back',root_path,class:'btn btn-secondary'%>
 <% end %>

@@ -1,5 +1,5 @@
 <div class="card text-center mt-5">
-  <div class="card-header">
+  <div class="card-header bg-dark text-light">
     <%= current_user.email%>
   </div>
   <div class="card-body">
@@ -9,18 +9,18 @@
     <h5 class="card-title"><%= @task.title %> </h5>
     <% end %>
     <p class="card-text"><%= @task.desc %></p>
-    <%= link_to 'Edit', edit_task_path(@task),class:"btn btn-outline-success" %>
+    <%= link_to 'Edit', edit_task_path(@task),class:"btn btn-success" %>
     <% if @task.completed? %>
-    <%= link_to 'Delete',@task,data: {turbo_method: 'delete', turbo_confirm: "Are you sure"},class:"btn btn-outline-danger fa fa-trash fa-solid"%>
+    <%= link_to 'Delete',@task,data: {turbo_method: 'delete', turbo_confirm: "Are you sure"},class:"btn btn-danger"%>
     <% else %>
-    <%= link_to " completed",complete_task_path(@task), data: {turbo_method: 'patch' },class:"fa-sharp fa-solid fa-check btn btn-outline-primary btn-lg "%>
+    <%= link_to " completed",complete_task_path(@task), data: {turbo_method: 'patch' },class:"btn btn-primary"%>
     <% end %>
   </div>
-  <div class="card-footer text-body-secondary">
+  <div class="card-footer text-body-dark">
      <% if @task.completed? %>
-    Completed at <%= time_ago_in_words(@task.completed_at)%>
+    Completed at <%= time_ago_in_words(@task.completed_at)%> ago
     <% else %>
-    Created at <%= time_ago_in_words(@task.created_at)%>
+    Created at <%= time_ago_in_words(@task.created_at)%>ago
     <% end %>
     
   </div>

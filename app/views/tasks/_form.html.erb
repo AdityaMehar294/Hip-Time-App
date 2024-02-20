@@ -1,16 +1,16 @@
-<%= simple_form_for(@task,html: {"class": "mt-5"}) do |form|%>
+<%= simple_form_for(@task,html: {"class": "mt-5 bg-light"}) do |form|%>
 <div class="row mb-3">
     <% if @task.persisted? %>
-        <h2 class="text-center mb-2">Update Task</h2>
+        <h2 class="text-center mb-4">-Update Task-</h2>
     <% else %>
-        <h2 class="text-center mb-2">Add New Task</h2>
+        <h2 class="text-center mb-2">-Add New Task-</h2>
     <% end %>
     <%= form.label :"Title :",class:"col-sm-2 col-form-label"%>
     <div class="col-sm-10">
-    <%= form.text_field :title,class:"form-control",required:true,placeholder:"Enter Title :"%>
+    <%= form.text_field :title,class:"form-control",required:true,placeholder:"Enter Task Title :"%>
     <% if @task.errors.any? %>
     <% @task.errors.full_messages_for(:title).each do |err| %>
-        <p style="color:red;font-size:1rem"><%= err %></p>
+        <p style="color:red;font-size:0.8rem"><%= err %></p>
             <% break %>
     <% end %>
     <% end %>
@@ -19,10 +19,10 @@
 <div class="row mb-3">
     <%= form.label :"Description :",class:"col-sm-2 col-form-label"%>
     <div class="col-sm-10">
-    <%= form.text_area :desc,class:"form-control",required:true,placeholder:"Enter Description :",rows: 10,cols: 10 %>
+    <%= form.text_area :desc,class:"form-control",required:true,placeholder:"Enter Task Description :",rows: 10,cols: 10 %>
     <% if @task.errors.any? %>
     <% @task.errors.full_messages_for(:desc).each do |err| %>
-        <p style="color:red;font-size:1rem"><%= err %></p>
+        <p style="color:red;font-size:0.8rem"><%= err %></p>
         <% break %>
     <% end %>
     <% end %>
@@ -30,13 +30,13 @@
 </div>
 <% if @task.persisted? %>
         <div class="d-grid gap-2 col-6 mx-auto">
-        <%= form.submit "Update Task",class:"btn btn-primary"%>
+        <%= form.submit "Update Task",class:"btn btn-success"%>
         </div>
     <% else %>
         <div class="d-grid gap-2 col-6 mx-auto">
         <%= form.submit "Add Task",class:"btn btn-primary"%>
         </div>
     <% end %>
-<%= link_to 'Back',root_path,class:"btn btn-warning btn-lg"%>
+<%= link_to 'Back',root_path,class:"btn btn-secondary"%>
 
 <% end %>
